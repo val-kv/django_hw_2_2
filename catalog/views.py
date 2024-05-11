@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from .forms import FeedbackForm
+from .models import Product
 
 
 def home(request):
-    return render(request, 'home.html')
+    products = Product.objects.all()
+    context = {'products': products}
+    return render(request, 'home.html', context)
 
 
 def contacts(request):
@@ -21,3 +24,9 @@ def contact_form(request):
         form = FeedbackForm()
 
     return render(request, 'contact_form.html', {'form': form})
+
+
+def product_detail(request, pk):
+    product = Product.objects.get(pk=pk)
+    context = {'product': product}
+    return render(request, 'product_detail.html', context)
