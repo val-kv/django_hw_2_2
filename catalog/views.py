@@ -6,11 +6,11 @@ from .models import Product
 def home(request):
     products = Product.objects.all()
     context = {'products': products}
-    return render(request, 'home.html', context)
+    return render(request, 'catalog/home.html', context)
 
 
 def contacts(request):
-    return render(request, 'contacts.html')
+    return render(request, 'catalog/contacts.html')
 
 
 def contact_form(request):
@@ -19,20 +19,20 @@ def contact_form(request):
         if form.is_valid():
             form.save()
             return render(request,
-                          'thank_you.html')
+                          'catalog/thank_you.html')
     else:
         form = FeedbackForm()
 
-    return render(request, 'contact_form.html', {'form': form})
+    return render(request, 'catalog/contact_form.html', {'form': form})
 
 
 def product_detail(request, pk):
     product = Product.objects.get(pk=pk)
     context = {'product': product}
-    return render(request, 'product_detail.html', context)
+    return render(request, 'catalog/product_detail.html', context)
 
 
 def product_list(request):
     products = Product.objects.all()
     context = {'products': products}
-    return render(request, 'product_list.html', context)
+    return render(request, 'catalog/product_list.html', context)
