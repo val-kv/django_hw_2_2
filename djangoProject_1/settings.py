@@ -14,7 +14,7 @@ from pathlib import Path
 import os
 
 from django.core.checks import templates
-from django.template.context_processors import static
+from django.template.context_processors import static, media
 from django.template.loaders import app_directories
 
 
@@ -60,7 +60,7 @@ ROOT_URLCONF = 'djangoProject_1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'catalog/templates/catalog']
+        'DIRS': [BASE_DIR / 'catalog']
         ,
         'APP_DIRS': True,
         'OPTIONS': {
