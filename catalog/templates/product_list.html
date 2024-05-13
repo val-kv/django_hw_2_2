@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% load custom_filters %}
+
+
+{% block title %}Product List{% endblock %}
+
+{% block content %}
+    <h1>Products</h1>
+    <div class="product-list">
+        {% for product in products %}
+            <div class="product-card">
+                <img src="{{ product.image|media_url }}" alt="Product Image">
+                <h2>{{ product.name }}</h2>
+                <p>{{ product.description|slice:":100" }}</p>
+                <p>Price: ${{ product.price }}</p>
+                <hr>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
