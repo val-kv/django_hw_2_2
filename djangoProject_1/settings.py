@@ -14,9 +14,9 @@ from pathlib import Path
 import os
 
 from django.core.checks import templates
-from django.template.context_processors import static, media
+from django.template.backends.django import DjangoTemplates
 from django.template.loaders import app_directories
-
+from django.template.context_processors import static, media
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
